@@ -1,0 +1,20 @@
+# This is sample yaml file
+apiVersion: V1
+kind: pod
+metadata: 
+name: nginx
+lables:
+app: nginx
+spec:
+conatiners:
+-name: nginx-container
+image: nginx
+ports:
+-container port: 80
+volumemounts:
+-name: nginx-vol
+mountpath: /usr/nginx/html
+-name: sidecar-conatiner
+image: curl images/curl
+command: ["/bin/sh"]
+args: ["-c", "echo hello from the sidecar container; sleep 300"]
